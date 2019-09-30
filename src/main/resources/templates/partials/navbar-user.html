@@ -7,35 +7,37 @@
 </head>
 <body>
 
-<nav th:fragment="user-nav" class="navbar navbar-expand-lg navbar-light">
-    <div class="collapse navbar-collapse navbar-style" id="navbarNav">
-        <ul class="navbar-nav ul-style form-inline">
-            <li class="nav-item nav-link-style navbar-brand">
-                <a th:href="@{/dashboard}" class="nav-link"><img src="/img/seek-devs(cropped).png" width="90" height="90" class="img-link" alt="logo"/></a>
+<nav th:fragment="user-nav" class="navbar-style">
+    <div class="nav-wrapper">
+        <a th:href="@{/dashboard}" class="brand-logo"><img src="/img/seek-devs(cropped).png" width="60" height="60" alt="logo"/></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li class="nav-link-style">
+                <a th:href="@{/profile}">Profile</a>
             </li>
-            <li class="nav-item nav-img-pos nav-link-style">
-                <a th:href="@{/profile}" class="nav-link">Profile</a>
+            <li class="nav-link-style">
+                <a th:href="@{/projects/create}">Create Project</a>
             </li>
-            <li class="nav-item nav-link-style">
-                <a th:href="@{/projects/create}" class="nav-link">Create Project</a>
+            <li class="nav-link-style">
+                <a th:href="@{/users}" >Users</a>
             </li>
+
             <li class="nav-item nav-link-style">
                 <a th:href="@{/users}" class="nav-link">Users</a>
             </li>
             <li class="nav-item nav-link-style">
                 <a th:href="@{/login}" class="nav-link" tabindex="-1" >
                     <form th:action="@{/logout}" th:method="post">
+
                 </form>Logout</a>
             </li>
         </ul>
-        <form class="form-inline my-2 d-flex justify-content-end" th:action="@{/users}" th:method="post">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" />
-            <button class="nav-btn-style my-2 my-sm-0" type="submit" id="searched">Search</button>
+        <form th:action="@{/users}" th:method="post">
+            <div class="input-field">
+                <a class="btn-floating btn-large waves-effect waves-light orange"><i class="material-icons">search</i></a>
+            </div>
         </form>
     </div>
-    <button class="navbar-toggler justify-content-end icon-style" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="background-color: #f2c078">
-        <span class="navbar-toggler-icon" style="background-color: #f2c078"></span>
-    </button>
 </nav>
 
 </body>

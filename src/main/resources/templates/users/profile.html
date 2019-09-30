@@ -40,11 +40,12 @@
                 <img class="user mx-auto" th:src="${user.photo}" />
                 <h5 align="center" th:text="${user.email}"></h5>
                 <form th:action="@{/profile}" class="mx-auto" id="imageForm" th:method="post">
-                    <input name="imageURL" id="imageURL" type="hidden"/>
-                    <input type="button" class="btn btn-primary mx-auto upload probutton" id="userbutton" onclick="client.picker(options).open();" value="Upload Picture"/>
+<!--                    <input name="imageURL" id="imageURL" type="hidden"/>-->
+                    <i class="material-icons" onclick="client.picker(options).open();" value="Upload Picture">add_a_photo</i>
+<!--                    <input type="button" onclick="client.picker(options).open();" value="Upload Picture"/>-->
                 </form>
                 <form th:action="@{/profile/edit}" th:method="GET">
-                    <input type="submit" class="btn btn-primary mx-auto editbutton" style="color: #000000" value="Edit Profile" />
+                    <i class="material-icons">edit</i>
                 </form>
             </div>
         </div>
