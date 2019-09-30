@@ -57,7 +57,7 @@ public class User {
     )
     private List<User> favorite_users;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "user_projects",
             joinColumns={@JoinColumn(name="user_id")},
