@@ -23,7 +23,8 @@
                 <a th:href="@{/users}" class="nav-link">Users</a>
             </li>
             <li class="nav-item nav-link-style">
-                <a th:href="@{/login}" class="nav-link" tabindex="-1" ><form th:action="@{/logout}" th:method="post">
+                <a th:href="@{/login}" class="nav-link" tabindex="-1" >
+                    <form th:action="@{/logout}" th:method="post">
                 </form>Logout</a>
             </li>
         </ul>

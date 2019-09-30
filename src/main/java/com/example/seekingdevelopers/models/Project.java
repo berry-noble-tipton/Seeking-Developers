@@ -41,7 +41,7 @@ public class Project {
     @JoinColumn(name="creator_id")
     private User creator;
 
-    @ManyToMany(mappedBy = "userProjects")
+    @ManyToMany(mappedBy = "userProjects", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<User> contributors;
 
     @ManyToOne
