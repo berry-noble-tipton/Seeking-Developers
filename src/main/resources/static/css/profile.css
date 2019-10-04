@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans%7CRoboto+Slab&display=swap');
+body {
+
+    background-color: #696D87;
+    font-family: 'Roboto Slab', serif;
+    text-align: center;
+}
+
+.card {
+    /* Add shadows to create the "card" effect */
+    /*box-shadow: 0 4px 8px 0 rgba(255,131,0,0.5);*/
+    /*transition: 0.3s;*/
+    background-color: lightgrey;
+    color: #000000;
+    border-radius: 8px;
+}
+
+/* On mouse-over, add a deeper shadow */
+/*.card:hover {*/
+/*    box-shadow: 5px 10px 20px 10px rgba(255,131,0,0.5);*/
+/*}*/
+
+/* Add some padding inside the card container */
+.container {
+    padding: 2px 16px;
+}
+
+.current-project {
+    max-height: 200px;
+    max-width: 200px;
+    text-align: center;
+}
+
+.user {
+    height: 230px;
+    width: 230px;
+    align-content: center;
+    text-align: center;
+    margin: 4%;
+}
+
+#userbutton {
+    color: #ffffff;
+}
+
+.probutton {
+    border-radius: 8px;
+    border: none;
+    height: 50px;
+    width: 200px;
+    background-color: #468a46;
+    color: #ffffff;
+    align-content: center;
+    text-align: center;
+}
+
+.probutton:hover {
+    background-color: #306130;
+    color: #ffffff;
+}
+
+.editbutton {
+    border-radius: 8px;
+    border: none;
+    height: 50px;
+    width: 200px;
+    background-color: #f2c078;
+    color: #000000;
+    align-content: center;
+    text-align: center;
+}
+
+.editbutton:hover {
+    background-color: #FFA95E;
+}
+
+form {
+    text-align: center;
+    align-content: center;
+}
+
+.pro {
+    margin: 4%;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.pro2 {
+    margin: 3%;
+    text-align: center;
+    align-content: center;
+}
+
+.biography {
+    height: 40%;
+    margin: 3%;
+    overflow: scroll;
+}
+
+.upload {
+    margin-bottom: 3%;
+}
+
+#userlist {
+    margin-top: 3%;
+}
+
+#user2 {
+    max-height: 100px; !important;
+    max-width: 100px; !important;
+    margin: 4%;
+    object-fit: contain;
+}

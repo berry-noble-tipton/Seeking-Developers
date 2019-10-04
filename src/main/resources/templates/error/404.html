@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="partials/header :: header" >
+    </th:block>
+    <link rel="stylesheet" href="/css/login.css" />
+    <link rel="stylesheet" href="/css/navbar.css"/>
+    <title>Error</title>
+</head>
+<body>
+
+<nav th:replace="partials/navbar :: nav"></nav>
+
+<div class="login mx-auto" id="login-form" align="center">
+    <form th:action="@{'/'}" method="get">
+        <h2 style="color: black">Oops! There was an error.</h2>
+        <input type="submit" value="Home" />
+    </form>
+
+</div>
+
+
+
+<footer th:replace="partials/footer :: footer"></footer>
+
+</body>
+</html>

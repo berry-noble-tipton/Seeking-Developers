@@ -1,70 +1,118 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <th:block th:include="partials/header :: header" >
+    </th:block>
     <title>Profile</title>
-    <div th:replace=" /partials/header :: header" ></div>
+    <link rel="stylesheet" href="/css/profile.css" />
+    <link rel="stylesheet" href="/css/navbar-user.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
-<nav th:replace=" /partials/navbar :: nav"></nav>
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+<script>
+    const client = filestack.init('ADhg7cXQTXmfBbbTxghC6z');
+    let options = {
+        "maxFiles": 1,
+        "accept": [
+            "image/*"
+        ],
+        "fromSources": [
+            "local_file_system"
+        ],
+        onUploadDone: file=>{
+            console.log(file);
+            file = file.filesUploaded[0];
+            document.getElementById("imageURL").value=file.url;
+            document.getElementById("imageForm").submit();
+        }
+    };
+</script>
+<nav th:replace="partials/navbar-user :: user-nav"></nav>
 
-    <br />
-    <br />
+<div class="container">
 
-    <div class="user-container" th:each="user : ${user}">
-        <div class="row">
-            <div class="col-lg-1 col-md-1"></div>
-                <div class="card col-lg-4 col-md-3">
-                    <img class="user" src="../img/filler-hyaluron-wien.jpg" />
-                    <br />
-                    <h3 align="center" th:text="${user.username}">Insert username script here:</h3>
-                    <h5 align="center" th:text="${user.email}">Insert email script here:</h5>
-                    <h5 align="center">Insert rating script here:</h5>
-                </div>
-
-            <div class="col-lg-1 col-md-1"></div>
-            <!--divider-->
-
-                <div class="card col-lg-5 col-md-4">
-                    <div class="card-body">
-                        <h3 class="card-title" align="center">Biography:</h3>
-                        <p class="card-text">Insert bio script here: </p>
-                    </div>
-                    <hr />
-                    <div class="card-body">
-                        <h3 class="card-title" align="center">Languages:</h3>
-                        <p class="card-text">Insert languages script here:</p>
-                    </div>
-                </div>
+<div class="container-fluid" th:each="user : ${user}">
+    <div class="row">
+        <div class="card user-box col-lg-4 col-md-7 col-sm-12  pro">
+            <div class="pro2">
+                <h3 align="center" th:text="${user.username}"></h3>
+                <img class="user mx-auto" th:src="${user.photo}" />
+                <h5 align="center" th:text="${user.email}"></h5>
+                <form th:action="@{/profile}" class="mx-auto" id="imageForm" th:method="post">
+<!--                    <input name="imageURL" id="imageURL" type="hidden"/>-->
+                    <i class="material-icons" onclick="client.picker(options).open();" value="Upload Picture">add_a_photo</i>
+<!--                    <input type="button" onclick="client.picker(options).open();" value="Upload Picture"/>-->
+                </form>
+                <form th:action="@{/profile/edit}" th:method="GET">
+                    <i class="material-icons">edit</i>
+                </form>
             </div>
         </div>
-<br />
 
-    <div class="user-container">
-        <div class="row">
+        <div class="card col-lg-5 col-md-7 col-sm-12  pro">
 
-            <div class="col-lg-1 col-md-1"></div>
-
-            <div class="card col-lg-3 col-md-2" align="center" th:each="project : ${lastProject}">
-                <br />
-                <h3 th:text="${project.title}">Insert current project script here:</h3>
-                <p th:text="*{project.description}"></p>
+            <div class="biography">
+                <h3 class="" align="center"><u>Biography:</u></h3>
+                <p class="card-text" th:text="${user.bio}">Insert bio script here: </p>
             </div>
-
-            <div class="card col-lg-3 col-md-2" align="center">
-                <img class="current-project" src="../img/comp.jpg" />
-                <br />
-                <h3>Add project here:</h3>
-            </div>
-
-            <div class="card col-lg-4 col-md-3" align="center">
-                <img class="current-project" src="../img/comp.jpg" />
-                <br />
-                <h5>Insert list of projects script:</h5>
+            <hr />
+            <div class="favorites">
+                <h3 align="center"><u>Favorite Users:</u></h3>
+                <div th:each="favorite_user : ${favorite_users}">
+                    <br />
+                    <a th:href="'/users/' + ${favorite_user.id} + '/profile'">
+                        <h4 th:text="${favorite_user.username}"></h4>
+                    </a>
+                </div>
             </div>
 
         </div>
     </div>
 
+    <div class="row">
+        <div class="card col-lg-3 col-md-5 col-sm-12  pro" align="center">
+            <div class="pro2">
+                <h3><u>Current Project:</u></h3>
+                <div th:each="project : ${lastProject}">
+                    <br />
+                    <h3 th:text="${project.title}">Insert current project script here:</h3>
+                    <p th:text="*{project.description}"></p>
+                    <form th:action="@{'/projects/' + ${project.id} + '/single-project'}" th:method="GET">
+                        <input type="hidden" name="idEdit" th:value="${project.id}" />
+                        <button type="submit" class="btn btn-primary probutton">View this project</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="card col-lg-3 col-md-5 col-sm-12  pro" align="center">
+            <div class="pro2">
+                <h3><u>Languages:</u></h3>
+                <p class="card-text" th:each="language : ${langs}" th:text="${language.language}">
+                </p>
+            </div>
+        </div>
+
+        <div class="card col-lg-3 col-md-5 col-sm-12  pro" align="center">
+            <div class="pro2">
+                <h3><u>Completed Projects:</u></h3>
+                <br />
+                <div th:each="completedProject : ${completedProjects}">
+                    <a th:href="'/projects/' + ${completedProject.id} + '/single-project'">
+                        <h4 th:text="${completedProject.title}"></h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+<footer th:replace="partials/footer :: footer"></footer>
+
 </body>
 </html>
+
 

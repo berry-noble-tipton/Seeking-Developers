@@ -2,40 +2,50 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Single Project Page</title>
-    <div th:replace=”/partials/header :: header”></div>
-    <link rel="stylesheet" href="../css/single-project.css" />
+    <th:block th:include="partials/header :: header" >
+    </th:block>
+    <link rel="stylesheet" href="/css/single-project.css" />
+    <link rel="stylesheet" href="/css/navbar-user.css"/>
 </head>
 <body>
-<nav th:replace="partials/navbar :: nav"></nav>
-
+<nav th:replace="partials/navbar-user :: user-nav"></nav>
 <br />
 <br />
 
-<div class="project-container">
-    <div class="card">
+<div class="card card-style d-flex align-self-center" >
+     <div th:each="project : ${project}">
         <div class="card-header">
             <div class="row">
-                <div class="column-title">
-                    <h1>Project Title:</h1>
+                <div class="col-8 col-md-12 column-title">
+                    <h1><span th:text="${project.title}" id="projectTitle"></span></h1>
                 </div>
-                <div class="column-date">
-                    <h5>Date Created:</h5>
+                <div class="col-4 col-md-12 column-date my-auto" id="createDate">
+                    <h5>Date Created: <span th:text="${{project.creatingDate}}"></span></h5>
                 </div>
-
             </div>
         </div>
-
-        <ul class="list-group">
-            <li class="list-group-item">Created By:</li>
-            <li class="list-group-item" id="description">Description:</li>
-            <li class="list-group-item">Help Needed:</li>
-            <li class="list-group-item">Tags:</li>
-            <li class="list-group-item">Is Complete?</li>
-        </ul>
-
+            <h4 class="justify-content-center">Created By:</h4>
+            <h4 th:text="${project.creator.username}"></h4>
+            <img class="user2 mx-auto" th:src="${project.creator.photo}" style="height: 100px; width: 100px; border-radius: 50%;"/>
+            <h4 class="justify-content-center" id="description">Description: <span th:text="${project.description}"></span></h4>
+            <h4 class="justify-content-center">Help Needed: <span th:text="${project.dev_type.title}"></span></h4>
+            <h4 class="justify-content-center">Contributors: <span th:each="contributor : ${contributors}">
+                <!--<li th:text="${contributor.username}"></li>-->
+                <a th:href="'/users/' + ${contributor.id} + '/profile' "><h4 th:text="${contributor.username}"></h4></a>
+            </span></h4>
+        <form th:action="@{/dashboard}" th:method="POST" onsubmit="return confirm('Are you sure you want to join this project?')">
+            <input type="hidden" name="joinProject" th:value="${project.id}" />
+            <button type="submit" class="btn-style joinbutton">Request to join</button>
+        </form>
+        <div th:if="${currentUser} == ${project.creator}">
+        <form th:action="@{'/projects/' + ${project.id} + '/single-project' + '/edit'}" th:method="GET">
+            <input type="hidden" name="editProject" th:value="${project.id}" />
+            <button th:type="submit" class="btn-style editbutton">Edit Project</button>
+        </form>
+        </div>
     </div>
 </div>
-
+<footer th:replace="partials/footer :: footer"></footer>
 
 </body>
 </html>

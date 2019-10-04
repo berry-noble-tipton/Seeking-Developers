@@ -30,7 +30,10 @@ public class User {
     @Column(columnDefinition = "Boolean default false")
     private boolean isAdmin;
 
-    @Column
+    @Column(columnDefinition = "TEXT")
+    private String bio;
+
+    @Column(columnDefinition = "varchar(255) default 'https://cdn.filestackcontent.com/UrT1CLBVSYGCReZQ1nnA'")
     private String photo;
 
     @Column
@@ -63,22 +66,50 @@ public class User {
     private List<Project> userProjects;
 
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "user_languages",
+            joinColumns={@JoinColumn(name="languages_id")},
+            inverseJoinColumns = {@JoinColumn(name="users_id")}
+    )
+    private List<Language> languages;
+
     public User(User copy) {
         id = copy.id; // This line is SUPER important! Many things won't work if it's absent
         email = copy.email;
         username = copy.username;
         password = copy.password;
+        languages = copy.languages;
+        userProjects = copy.userProjects;
+        photo = copy.photo;
     }
 
 
-    public User(String username, String password, String email){
+    public User(String username, String password, String email, String bio){
         this.username = username;
         this.password = password;
         this.email = email;
+        this.bio = bio;
     }
+
     public User(){};
 
+    public User(String username, String password, String email, String bio, List<Language> languages, Long id, String photo){
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.bio = bio;
+        this.languages = languages;
+        this.id = id;
+        this.photo = photo;
+    }
+
+
     public long getId(){return this.id;}
+
+    public void setId(Long id){
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;
@@ -134,5 +165,45 @@ public class User {
 
     public void setLinkedin(String linkedin) {
         this.linkedin = linkedin;
+    }
+
+    public Dev_type getDev_type() {
+        return dev_type;
+    }
+
+    public void setDev_type(Dev_type dev_type) {
+        this.dev_type = dev_type;
+    }
+
+    public List<Language> getLanguage() {
+        return languages;
+    }
+
+    public void setLanguage(List<Language> language) {
+        this.languages = language;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public List<User> getFavorite_users() {
+        return favorite_users;
+    }
+
+    public void setFavorite_users(List<User> favorite_users) {
+        this.favorite_users = favorite_users;
+    }
+
+    public List<Project> getUserProjects() {
+        return userProjects;
+    }
+
+    public void setUserProjects(List<Project> userProjects) {
+        this.userProjects = userProjects;
     }
 }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="partials/header :: header" >
+    </th:block>
+    <meta charset="UTF-8" />
+    <title>Delete Project</title>
+    <link rel="stylesheet" href="/css/edit.css"/>
+    <link rel="stylesheet" href="/css/navbar-user.css"/>
+
+</head>
+<body>
+
+<nav th:replace="partials/navbar-user :: user-nav"></nav>
+
+<h3>Your Project is Complete!.</h3>
+<div th:each="project : ${project}">
+<form th:action="@{'/projects/' + ${project.id} + '/complete'}" th:method="POST">
+    <label for="git">Please enter <span th:text="${project.title}"></span> Github URL</label>
+    <input type="text" name="git" id="git" />
+    <br/>
+    <input type="submit" value="submit" />
+</form>
+</div>
+
+
+<footer th:replace="partials/footer :: footer"></footer>
+</body>
+</html>

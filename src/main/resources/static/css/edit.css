@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans%7CRoboto+Slab&display=swap');
+body{
+    background-color: #696D87;
+    text-align: center;
+    color: black;
+    font-family: 'Roboto Slab', serif;
+}
+.main-card{
+    box-sizing: border-box;
+    justify-content: end;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f2f3f7;
+    box-shadow: #000;
+    padding: 1em;
+    color: black;
+}
+
+.update{
+    background-color: #f2c078;
+    color: black;
+    margin-top: .2em;
+    border-radius: 8px;
+    height: 50px;
+    width: 200px;
+}
+
+.update:hover{
+    background-color: #ffa95e;
+    color: black;
+    border-radius: 8px;
+}
+
+.edit{
+    background-color: #468a46;
+    color: #ffffff;
+    margin-top: .2em;
+    border-radius: 8px;
+    height: 50px;
+    width: 200px;
+}
+.edit:hover{
+    background-color: #306130;
+    color: #ffffff;
+    border-radius: 8px;
+}
+
+.delete{
+    background-color: #a32b22;
+    color: #ffffff;
+    margin-top: .2em;
+    border-radius: 8px;
+    height: 50px;
+    width: 200px;
+
+}
+.delete:hover{
+    background-color: #701a13;
+    color: #ffffff;
+    border-radius: 8px;
+}
+
+#creatform{
+    width: 40%;
+    align-content: center;
+}
+.textbox-title{
+    width: 80%;
+    margin: auto;
+    display: block;
+}
+.textbox-description{
+    width: 80%;
+    margin: auto;
+    display: block;
+}
+.textbox-style{
+    border-radius: 8px;
+    width: 80%;
+    background-color: #FFF9EE;
+    margin: 1em;
+    position: page;
+}
+.dropdown-style{
+    border-radius: 8px;
+    background-color: #FFF9EE;
+    margin-top: .2em;
+    margin-bottom: 1em;
+}
+#description{
+    height: 3em;
+}

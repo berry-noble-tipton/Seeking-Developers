@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="partials/header :: header" >
+    </th:block>
+    <title>Profile</title>
+    <link rel="stylesheet" href="/css/profile.css" />
+    <link rel="stylesheet" href="/css/navbar-user.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+<script>
+    const client = filestack.init('ADhg7cXQTXmfBbbTxghC6z');
+    let options = {
+        "maxFiles": 1,
+        "accept": [
+            "image/*"
+        ],
+        "fromSources": [
+            "local_file_system"
+        ],
+        onUploadDone: file=>{
+            console.log(file);
+            file = file.filesUploaded[0];
+            document.getElementById("imageURL").value=file.url;
+            document.getElementById("imageForm").submit();
+        }
+    };
+</script>
+<nav th:replace="partials/navbar-user :: user-nav"></nav>
+
+<div class="container-fluid" th:each="user : ${user}">
+    <div class="row">
+        <div class="card user-box col-lg-4 col-md-7 col-sm-12  pro">
+            <div class="pro2">
+                <h3 align="center" th:text="${user.username}"></h3>
+                <img class="user mx-auto" th:src="${user.photo}" />
+                <h5 align="center" th:text="${user.email}"></h5>
+                <form th:action="@{'/users/' + ${user.id} + '/profile'}" th:method="POST">
+                    <input type="hidden" value="${user.id}" name="favorite" />
+                    <input type="submit" class="btn btn-primary probutton" value="Add To Favorites" />
+                </form>
+            </div>
+        </div>
+
+        <div class="card col-lg-5 col-md-7 col-sm-12  pro">
+
+            <div class="biography">
+                <h3 class="" align="center"><u>Biography:</u></h3>
+                <p class="card-text" th:text="${user.bio}">Insert bio script here: </p>
+            </div>
+            <hr />
+            <div class="favorites">
+                <h3 align="center"><u>Favorite Users:</u></h3>
+                <div th:each="favorite_user : ${favorite_users}">
+                    <br />
+                    <a th:href="'/users/' + ${favorite_user.id} + '/profile'">
+                        <h4 th:text="${favorite_user.username}"></h4>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="card col-lg-3 col-md-5 col-sm-12  pro" align="center">
+            <div class="pro2">
+                <h3><u>Current Project:</u></h3>
+                <div th:each="project : ${lastProject}">
+                    <br />
+                    <h3 th:text="${project.title}">Insert current project script here:</h3>
+                    <p th:text="*{project.description}"></p>
+                    <form th:action="@{'/projects/' + ${project.id} + '/single-project'}" th:method="GET">
+                        <input type="hidden" name="idEdit" th:value="${project.id}" />
+                        <button type="submit" class="btn btn-primary probutton">View this project</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="card col-lg-3 col-md-5 col-sm-12  pro" align="center">
+            <div class="pro2">
+                <h3><u>Languages:</u></h3>
+                <p class="card-text" th:each="language : ${langs}" th:text="${language.language}">
+                </p>
+            </div>
+        </div>
+
+        <div class="card col-lg-3 col-md-5 col-sm-12  pro" align="center">
+            <div class="pro2">
+                <h3><u>Completed Projects:</u></h3>
+                <br />
+                <div th:each="completedProject : ${completedProjects}">
+                    <h4 th:text="${completedProject.title}"></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer th:replace="partials/footer :: footer"></footer>
+
+</body>
+</html>
+
+

@@ -2,17 +2,17 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Project List Page</title>
-    <div th:replace=”/partials/header :: header”></div>
-    <link rel="stylesheet" href="../css/projects-list.css" />
-
+    <th:block th:include="partials/header :: header" >
+    </th:block>
+    <link rel="stylesheet" href="/css/projects-list.css" />
+    <link rel="stylesheet" href="/css/navbar-user.css"/>
 </head>
 <body>
-<nav th:replace="partials/navbar :: nav"></nav>
-
+<nav th:replace="partials/navbar-user :: user-nav"></nav>
 <br />
 <br />
 
-<div class="card-deck">
+<div class="card-deck main-card">
     <div class="project-container">
         <div class="card">
             <div class="card-header">
@@ -35,6 +35,7 @@
                 <li class="list-group-item">Is Complete?</li>
             </ul>
 
+            <button th:type="button" th:value="Edit" >Edit</button>
         </div>
     </div>
 
@@ -63,6 +64,8 @@
         </div>
     </div>
 </div>
+
+<footer th:replace="partials/footer :: footer"></footer>
 
 </body>
 </html>

@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Jacques+Francois+Shadow|Special+Elite&display=swap');
+body{
+    background-color: #696D87;
+    text-align: center;
+    color: #F2C078;
+    font-family: ‘Roboto Slab’, serif;
+}
+.card-deck {
+    padding: 25px;
+    /*box-sizing: border-box;*/
+    /*justify-content: end;*/
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FF8300;
+    box-shadow: #FF8300;
+    /*padding: 1em;*/
+}
+
+.project-container {
+    align-content: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+}
+/*.main-card{*/
+/*    box-sizing: border-box;*/
+/*    justify-content: end;*/
+/*    width: 75%;*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*    background-color: #FF8300;*/
+/*    box-shadow: #FF8300;*/
+/*    padding: 1em;*/
+/*}*/
+
+.card {
+    width: 35%;
+}
+
+.column-title {
+    width: 75%;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.column-date {
+    width: 25%;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.description {
+    height: 300px;
+}
+
+.list-group {
+    list-style-type: none;
+    background-color: #F2C078;
+    color: #999;
+}

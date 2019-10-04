@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans%7CRoboto+Slab&display=swap');
+.navbar-style {
+    background-color: #f2c078;
+    color: #151E3F;
+    font-size: 1.2em;
+    font-family: 'Roboto Slab', serif;
+    box-shadow: black;
+}
+nav-link-style a:hover{
+    color: #FFF9EE;
+    text-shadow: #FFF9EE;
+}
+search-style{
+    width: 25%;
+}
+.a-style{
+    color: #FFA95E;
+    margin: .5em;
+}
+.a-style:hover{
+    color: #FFF9EE;
+}

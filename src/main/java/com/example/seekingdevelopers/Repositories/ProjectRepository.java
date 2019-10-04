@@ -15,4 +15,18 @@ public interface ProjectRepository extends CrudRepository<Project, Long> {
 
      ArrayList<Project> findAllByCreatorOrderByCreatingDate(User user);
 
+     ArrayList<Project> findAllByisCompleteFalseOrderByCreatingDateDesc();
+
+     ArrayList<Project> findAllByTitleContaining(String search);
+
+     ArrayList<Project> findAllByCreatorAndIsCompleteTrue(User user);
+
+     Project findDistinctById(long id);
+
+     ArrayList<Project> findAll();
+
+
+
+
+
 }

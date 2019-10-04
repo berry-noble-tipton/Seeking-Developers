@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans%7CRoboto+Slab&display=swap');
+.navbar-style {
+    background-color: #f2c078;
+    color: #151E3F;
+    padding: 0;
+    margin: 0 auto 1em auto;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.2em; !important;
+    box-shadow: black;
+}
+.navbar{
+    padding: 0;!important;
+}
+nav a:hover{
+    color: #FFF9EE;
+    text-shadow: #FFF9EE;
+}
+.ul-style{
+    padding: .5em 0 .5em .5em;
+    /*padding-top: 0;*/
+    /*padding-right: .5em;*/
+}
+.nav-link {
+    color: #151E3F;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.img-link{
+    margin-right: 0;
+    padding: 0;
+    width: 4em;
+    height: auto;
+}
+.nav-img-pos{
+    padding-left: 0;
+}
+.nav-btn-style{
+    background-color: #151E3F;
+    color: #f2c078;
+    border-radius: 8px;
+    size: 1.2em;
+    margin-right: 1em;
+}
+.nav-btn-style:hover{
+    background-color: #151E3F;
+    color: #ffa95e;
+    border-radius: 8px;
+}
+.a-style{
+    color: #FFA95E;
+    margin: .5em;
+}
+.a-style:hover{
+    color: #FFF9EE;
+}

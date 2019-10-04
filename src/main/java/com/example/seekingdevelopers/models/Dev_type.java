@@ -20,4 +20,35 @@ public class Dev_type {
     @OneToMany(mappedBy = "dev_type")
     private List<User> userListList;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public List<Project> getProjectsList() {
+        return projectsList;
+    }
+
+    public void setProjectsList(List<Project> projectsList) {
+        this.projectsList = projectsList;
+    }
+
+    public List<User> getUserListList() {
+        return userListList;
+    }
+
+    public void setUserListList(List<User> userListList) {
+        this.userListList = userListList;
+    }
 }

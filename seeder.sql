@@ -1,6 +1,6 @@
 USE seeking_db;
 
-insert into users (id, email, github, is_admin, linkedin, password, photo, username, dev_type_id) values (1, 'smumford0@clickbank.net', 'www.github.com/dummy1', 1, 'www.linkedin.com/dummy1', '8lWHK72', 'http://dummyimage.com/233x163.png/cc0000/ffffff', 'debbens0', 1));
+insert into users (id, email, github, is_admin, linkedin, password, photo, username, dev_type_id) values (1, 'smumford0@clickbank.net', 'www.github.com/dummy1', 1, 'www.linkedin.com/dummy1', '8lWHK72', 'http://dummyimage.com/233x163.png/cc0000/ffffff', 'debbens0', 1);
 insert into users (id, email, github, is_admin, linkedin, password, photo, username, dev_type_id) values (2, 'dpottle1@instagram.com', 'www.github.com/dummy2', 0, 'www.linkedin.com/dummy2', 'bA1DZKyRJuV', 'http://dummyimage.com/117x218.bmp/cc0000/ffffff', 'ledgeon1', 2);
 insert into users (id, email, github, is_admin, linkedin, password, photo, username, dev_type_id) values (3, 'fcasbourne2@ning.com', 'www.github.com/dummy3', 1, 'www.linkedin.com/dummy3', 'gQA8VDbTu', 'http://dummyimage.com/129x112.png/5fa2dd/ffffff', 'emichelmore2', 3);
 
@@ -41,9 +41,9 @@ insert into languages (id, language) values (8, 'Bootstrap Framework');
 
 
 
-insert into user_languages (languages_id, users_id) values (1, 1);
-insert into user_languages (languages_id, users_id) values (2, 2);
-insert into user_languages (languages_id, users_id) values (3, 3);
+insert into user_languagess (languages_id, users_id) values (1, 1);
+insert into user_languagess (languages_id, users_id) values (2, 2);
+insert into user_languagess (languages_id, users_id) values (3, 3);
 
 insert into favorite_users (picked_user_id, picking_user_id) values (2, 1);
 insert into favorite_users (picked_user_id, picking_user_id) values (2, 3);

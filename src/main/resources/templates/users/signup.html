@@ -1,24 +1,92 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
+<th:block th:include="partials/header :: header" >
+</th:block>
+    <link rel="stylesheet" href="/css/signup.css" />
+    <link rel="stylesheet" href="/css/navbar.css"/>
+    <!--<meta charset="UTF-8" />-->
     <title>Sign up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
 <nav th:replace="partials/navbar :: nav "></nav>
 
-<form th:action="@{/sign-up}" method="POST" th:object="${user}">
-    <label for="username">Username</label>
-    <input id="username" th:field="*{username}" />
-    <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
-    <label for="email">Email</label>
-    <input id="email" th:field="*{email}" />
-    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
-    <label for="password">Password</label>
-    <input id="password" type="password" th:field="*{password}" />
-    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
-    <input value="Sign me up!" type="submit" />
+<div class="signup-form">
+<form th:action="@{/signup}" method="POST" th:object="${user}">
+    <h1>Sign-Up</h1>
+    <br />
+    <div class="form-group">
+    <div class="row">
+        <div class="col-6">
+            <label for="username"><b>Username</b></label>
+            <input type="text" id="username" class="form-control" th:field="*{username}" />
+        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+        </div>
+
+        <div class="col-6">
+            <label for="password"><b>Password</b></label>
+            <input type="password" id="password" class="form-control" th:field="*{password}" />
+        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+        </div>
+    </div>
+    </div>
+
+    <div class="form-group">
+        <label for="email"><b>Email</b></label>
+
+        <input type="email" class="form-control" id="email" th:field="*{email}" />
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+    </div>
+
+    <div class="form-group">
+        <label for="bio"><b>Biography</b></label>
+        <textarea class="form-control" style="height: 80px" id="bio" th:field="*{bio}"></textarea>
+    </div>
+
+        <label for="dev_type">What type of developer are you?</label>
+        <select name="dev_type" style="color: black" id="dev_type">
+            <option value="1">Front-End</option>
+            <option value="2">Back-End</option>
+            <option value="3">Full-Stack</option>
+        </select>
+        <p>What programming languages or frameworks do you know?</p>
+
+        <div class="row">
+            <div class="col-6">
+        <input id="HTML" type="checkbox" name="language" value="1" />
+        <label for="HTML">HTML</label>
+        <br />
+        <input id="jQuery" type="checkbox" name="language" value="2" checked="checked" />
+        <label for="jQuery">jQuery</label>
+        <br />
+        <input id="CSS" type="checkbox" name="language" value="3" />
+        <label for="CSS">CSS</label>
+        <br />
+        <input id="JavaScript" type="checkbox" name="language" value="4" />
+        <label for="JavaScript">JavaScript</label>
+        <br />
+            </div>
+            <div class="col-6">
+        <input id="Java" type="checkbox" name="language" value="5" />
+        <label for="Java">Java</label>
+        <br />
+        <input id="Spring" type="checkbox" name="language" value="6" />
+        <label for="Spring">Spring</label>
+        <br />
+        <input id="NodeJS" type="checkbox" name="language" value="7" />
+        <label for="NodeJS">NodeJS</label>
+        <br />
+        <input id="Bootstrap" type="checkbox" name="language" value="8" />
+        <label for="Bootstrap">Bootstrap</label>
+            </div>
+        </div>
+        <br/>
+    <div class="form-group">
+        <button type="submit" style="color: #151e3f" class="btn btn-lg btn-block" id="submit">Register Now</button>
+    </div>
 </form>
+</div>
 
 <footer th:replace="partials/footer :: footer"></footer>
 

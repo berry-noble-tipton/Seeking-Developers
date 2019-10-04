@@ -1,30 +1,71 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/navbar :: nav">
+<head>
+<th:block th:include="partials/header :: header">
+</th:block>
     <meta charset="UTF-8"/>
     <title>Seeking</title>
+    <link rel="stylesheet" href="/css/landing-page.css"/>
+    <link rel="stylesheet" href="/css/navbar.css"/>
 </head>
 <body>
 
     <nav th:replace="partials/navbar :: nav"></nav>
 
-    <div>
-        <h1>Welcome to Seeking Developers!</h1>
-        <p>Seeking Developers is a networking site that helps connect front-end developers with back-end developers.
-        </p>
+
+            <div class="landing-title">
+                <h1>Welcome to Seeking Developers!</h1>
+<!--                <br/>-->
+<!--                <h3>Seeking Developers is a networking site that helps connect front-end developers with back-end developers.-->
+            </div>
+
+        <img src="/img/seek-devs(cropped).png" class="back-img" alt="logo"/>
+
+    <div class="row row-style">
+        <div class="col-lg-4 col-sm-12 img-card-style card-style">
+            <div class="card">
+                <img src="/img/blur-codes-coding(2).jpg" class="card-img card-img-style" width="400px" height="300px" style="object-fit: cover" alt="projects"/>
+                <div class="card-img-overlay">
+                    <div class="caption-style">
+                        <h2 class="card-title">Projects</h2>
+                        <h3 class="card-text">Create and share your own projects.</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="col-lg-4 col-sm-12 img-card-style card-style">
+                <div class="card">
+                    <img src="/img/books-coding-couch.jpg" class="card-img card-img-style" width="400px" height="300px" alt="profile"/>
+                    <div class="card-img-overlay">
+                        <div class="caption-style">
+                            <h2 class="card-title">Make Your Profile</h2>
+                            <h3 class="card-text">Show your fellow devs what kind of a developer you are.</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12 img-card-style card-style">
+                <div class="card">
+                    <img src="/img/access-code-coding.jpg" class="card-img card-img-style" width="400px" height="300px" alt="dashboard"/>
+                    <div class="card-img-overlay">
+                        <div class="caption-style">
+                            <h2 class="card-title">Dashboard</h2>
+                            <h3 class="card-text">View and collaborate on projects from developers just like you.</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="bottom-style">
+        <h3>
+            If you're a developer looking for help on a project, Seeking Developers is the place for you!
+<!--            Seeking Developers is a networking site that helps-->
+<!--            connect front-end developers with back-end developers.-->
+<!--            Seeking Developers is a collaboration tool for developers.-->
+        </h3>
     </div>
 
-    <div>
-        <img src="img/" alt="projects" />
-    </div>
+<footer th:replace="partials/footer :: footer"></footer>
 
-    <div>
-        <img src="img/" alt="profile" />
-    </div>
-
-    <div>
-        <img src="img/" alt="dashboard" />
-    </div>
- <footer th:replace="partials/footer :: footer"></footer>
 </body>
 </html>

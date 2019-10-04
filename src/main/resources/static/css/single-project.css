@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Jacques+Francois+Shadow|Special+Elite&display=swap');
+body{
+    background-color: #696D87;
+    text-align: center;
+    color: #F2C078;
+    font-family: ‘Roboto Slab’, serif;
+}
+li{
+    list-style: none;
+}
+
+h4{
+    padding: .5em;
+    /*text-decoration: underline;*/
+}
+.card-style {
+    background-color: #f2f3f7;
+    border-radius: 8px;
+    width: 75%;
+    border-color: #f2f3f7;
+    color: #000;
+    /*position: absolute;*/
+    margin-right: auto;
+    margin-left: auto;
+    padding: 2em;
+}
+.column-title {
+   text-decoration: underline;
+}
+
+.joinbutton{
+    background-color: #468a46;
+    color: #ffffff;
+    border-color: #468a46;
+    border-radius: 8px;
+    margin: .5em;
+    padding: .2em;
+    height: 50px;
+    width: 200px;
+    font-size: 1.2em;
+}
+.joinbutton:hover{
+    background-color: #306130;
+    color: #ffffff;
+    border-color: #306130;
+    border-radius: 8px;
+    font-size: 1.2em;
+}
+
+.editbutton{
+    background-color: #F2C078;
+    color: #000000;
+    border-color: #F2C078;
+    border-radius: 8px;
+    margin: .5em;
+    padding: .2em;
+    height: 50px;
+    width: 200px;
+    font-size: 1.2em;
+}
+.editbutton:hover{
+    background-color: #ffa95e;
+    color: #000000;
+    border-color: #ffa95e;
+    border-radius: 8px;
+    font-size: 1.2em;
+}
+@media screen and (max-width: 378px) {
+    #createDate{
+        position: relative;
+        top: 10px;
+        width: 100px;
+        left: 52px;
+        max-width: 100px;
+    }
+    #projectTitle{
+        position: relative;
+        left: 36px;
+        width: 90%;
+        max-width: 90%;
+        margin: -21px;
+    }
+}

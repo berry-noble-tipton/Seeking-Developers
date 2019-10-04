@@ -1,47 +1,141 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <th:block th:include="partials/header :: header" >
+    </th:block>
+    <link rel="stylesheet" href="/css/aboutus.css" />
+    <link rel="stylesheet" href="/css/navbar.css" />
     <title>About us:</title>
-    <link rel="stylesheet" href="css/aboutus.css" />
-    <div th:replace=" /partials/header :: header" ></div>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body>
 <nav th:replace="partials/navbar :: nav"></nav>
 
+<div class="container-fluid content-row">
+<div class="row">
+    <div class="col-xl-4 col-lg-5 col-md-8 col-sm-12 mx-auto my-5">
+        <div class="card card-elle mx-auto h-100">
+            <div class="card-body">
+                <img src="/img/elleberry.jpg" class="ellepic" alt="Elle's image" style="width: 280px; height: 280px;" />
+                <h2 class="card-title">Elle Berry</h2>
 
-    <article class="card-elle w-75 mx-auto col-4">
-        <div class="card-body">
-            <img src="img/elle.png" alt="Elle's image" />
-            <h2 class="card-title">Elle</h2>
-
-            <h4>Biography:</h4>
-
-            <h6 class="bio">Gobbley Gopp text.</h6>
+                <div class="row links">
+                    <div class="col-4"><a href="https://alumni.codeup.com/students/653"><img class="social-icon mx-auto" src="/img/codeup.jpg" /></a></div>
+                    <div class="col-4"><a href="https://github.com/ElleBerry"><img class="social-icon mx-auto" src="/img/git-hub.jpg" /></a></div>
+                    <div class="col-4"><a href="https://www.linkedin.com/in/elle-berry/"><img class="social-icon mx-auto" src="/img/linked-in.jpg" /></a></div>
+                </div>
+            </div>
         </div>
-    </article>
+    </div>
+    <div class="col-xl-4 col-lg-5 col-md-8 col-sm-12 mx-auto my-5">
+        <div class=" card card-derek mx-auto h-100">
+            <div class="card-body">
+                <img src="/img/dereknoble.jpg" class="derekpic" alt="Derek's image" style="width: 280px; height: 280px;" />
+                <h2 class="card-title">Derek Noble</h2>
 
-    <article class="card-derek w-75 mx-auto col-4">
-        <div class="card-body">
-            <img src="img/derek.png" alt="Derek's image" />
-            <h2 class="card-title">Derek</h2>
-
-            <h4>Biography:</h4>
-
-            <h6 class="bio">Gobbley Gopp text.</h6>
+                <div class="row links">
+                    <div class="col-4"><a href="https://alumni.codeup.com/students/651"><img class="social-icon mx-auto" src="/img/codeup.jpg" /></a></div>
+                    <div class="col-4"><a href="https://github.com/dereknoblej"><img class="social-icon mx-auto" src="/img/git-hub.jpg" /></a></div>
+                    <div class="col-4"><a href="https://www.linkedin.com/in/derek-noble-j/"><img class="social-icon mx-auto" src="/img/linked-in.jpg" /></a></div>
+                </div>
+            </div>
         </div>
-    </article>
+    </div>
+    <div class="col-xl-4 col-lg-5 col-md-8 col-sm-12 mx-auto my-5">
+        <div class="card card-nic mx-auto h-100">
+            <div class="card-body">
+                <img src="/img/nictipton.jpg" class="nicpic" alt="Nic's image" style="width: 280px; height: 280px;" />
+                <h2 class="card-title">Nic Tipton</h2>
 
-    <article class="card-nic w-75 mx-auto col-4">
-        <div class="card-body">
-            <img src="img/nic.png" alt="Nic's image" />
-            <h2 class="card-title">Nic</h2>
-
-            <h4>Biography:</h4>
-
-            <h6 class="bio">Gobbley Gopp text.</h6>
+                <div class="row links">
+                    <div class="col-4"><a href="https://alumni.codeup.com/students/649"><img class="social-icon mx-auto" src="/img/codeup.jpg" /></a></div>
+                    <div class="col-4"><a href="https://github.com/ngtipton"><img class="social-icon mx-auto" src="/img/git-hub.jpg" /></a></div>
+                    <div class="col-4"><a href="https://www.linkedin.com/in/nic-tipton/"><img class="social-icon mx-auto" src="/img/linked-in.jpg" /></a></div>
+                </div>
+            </div>
         </div>
-    </article>
+    </div>
+</div>
+</div>
+
+<!--
+
+<div class="about">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <br/>
+            <div class="card-elle mx-auto">
+                <div class="card-body">
+                    <img src="/img/elleberry.jpg" alt="Elle's image" />
+                    <h2 class="card-title">Elle</h2>
+
+                    <h4>Biography:</h4>
+
+                    <h6 class="bio">I've always been interested in programming. I've
+                        learned to be a Software Developer skilled at
+                        technical leadership, communication and
+                        presentations. Experienced in full project life
+                        cycle from design to implementation to
+                        integration. Able to work well under pressure
+                        and consistently meet deadlines and targets
+                        while delivering high quality work. I quickly
+                        learned and mastered new technologies by
+                        working in both team and self-directed settings.</h6>
+                </div>
+            </div>
+            <br/>
+        </div>
+        <div class="carousel-item">
+            <br/>
+            <div class="card-derek mx-auto">
+                <div class="card-body">
+                    <img src="/img/dereknoble.jpg" alt="Derek's image'" />
+                    <h2 class="card-title">Derek</h2>
+
+                    <h4>Biography:</h4>
+
+                    <h6 class="bio">As a child, I loved to explore, build and deconstruct—from wandering the woods of Louisiana near my childhood home, to crafting castles out of
+                        popsicle sticks and hot glue, to dismantling the remote to determine how the buttons worked. I now have a newfound sense of that creative
+                        curiosity, as my time at Codeup has shown me that software development is where I have always belonged. In my career ahead, I intend to
+                        bring enthusiasm and hard work ethic to my career and team.</h6>
+                </div>
+            </div>
+            <br/>
+        </div>
+        <div class="carousel-item">
+            <br/>
+            <div class="card-nic mx-auto">
+                <div class="card-body">
+                    <img src="/img/nictipton.jpg" alt="Nic's image" />
+                    <h2 class="card-title">Nic</h2>
+
+                    <h4>Biography:</h4>
+
+                    <h6 class="bio">I am an experienced project manager with vast leadership experience. Skills include networking, analytical
+                        thinking and creative problem solving. Able to apply these concepts to expanding software
+                        development skills to produce a versatile developer with the understanding to both create
+                        programs from the ground up as well as organize them in a practical and efficient manner.</h6>
+                </div>
+            </div>
+            <br/>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+</div>
+
+-->
+
+<footer th:replace="partials/footer :: footer"></footer>
 
 </body>
 </html>

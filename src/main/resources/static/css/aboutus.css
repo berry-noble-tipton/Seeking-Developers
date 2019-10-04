@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans%7CRoboto+Slab&display=swap');
+body {
+    background-color: #696D87;
+    font-family: 'Roboto Slab', serif;
+}
+
+.about {
+    text-align: center;
+}
+
+.card {
+    display: table;
+}
+
+.card-elle {
+    color: #000000;
+    border-radius: 8px;
+    background-color: lightgrey;
+    text-align: center;
+
+
+}
+
+.card-derek {
+    color: #000000;
+    border-radius: 8px;
+    background-color: lightgrey;
+    text-align: center;
+}
+
+.card-nic {
+    color: #000000;
+    border-radius: 8px;
+    background-color: lightgrey;
+    text-align: center;
+}
+
+h6.bio {
+    font-size: 1.2em;
+}
+
+.social-icon {
+    max-height: 40px;
+    max-width: 40px;
+    margin: 10px;
+}
+
+.ellepic {
+    border-radius: 5%;
+    box-shadow: 10px 10px 5px grey;
+}
+
+.derekpic {
+    border-radius: 5%;
+    box-shadow: 10px 10px 5px grey;
+}
+
+.nicpic {
+    border-radius: 5%;
+    box-shadow: 10px 10px 5px grey;
+}
+
+.card-title {
+    margin: 10px;
+}
+
+@media screen and (max-width: 992px) {
+    .content-row {
+        padding: 0px;
+        margin-left: 0%;
+    }
+}

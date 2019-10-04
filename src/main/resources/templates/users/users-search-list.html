@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="paritals/header :: head">
+<head>
+    <th:block th:include="partials/header :: header" >
+    </th:block>
     <meta charset="UTF-8"/>
-    <title>Search</title>
+    <title>List of Users</title>
+    <link rel="stylesheet" href="/css/profile.css" />
+    <link rel="stylesheet" href="/css/navbar-user.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
-<nav th:replace="paritals/navbar :: nav"></nav>
 
-    <div class="card">
-        <div class="card-body">
-        <h3 th:text="projects.title" class="card-title"></h3>
-        <a th:text="projects.creator" th:href="@{/profile.html}" class="card-subtitle mb-2 text-muted card-link"></a>
-        <h5 th:text="projects.isComplete" class="card-subtitle mb-2 text-muted"></h5>
-        <p th:text="projects.description" class="card-text"></p>
-        <h5 th:text="projects.dev_type" class="card-subtitle mb-2 text-muted"></h5>
-        <h5 th:text="projects.creating_date" class="card-subtitle mb-2 text-muted"></h5>
+<nav th:replace="partials/navbar-user :: user-nav"></nav>
+
+    <div class="row" align="center">
+        <div class="card col-md-4 col-sm-6 col-xs-12 mx-auto" align="center">
+            <h3 id="userlist"><u>Users:</u></h3>
+            <br/>
+            <div th:each="user : ${users}">
+                <img class="user2 mx-auto" th:src="${user.photo}" style="height: 100px; width: 100px"/>
+                <h3 th:text="${user.username}"> </h3>
+                <h5 th:text="${user.dev_type.title}"> </h5>
+                <form th:action="@{'/users/' + ${user.id} + '/profile'}" th:method="GET">
+                    <input type="hidden" name="id" th:value="${user.id}" />
+                    <button type="submit" class="btn btn-primary probutton">View Profile</button>
+                </form>
+                <hr/>
+            </div>
+
         </div>
     </div>
+
 
 <footer th:replace="partials/footer :: footer"></footer>
 </body>

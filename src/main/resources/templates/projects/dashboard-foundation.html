@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8"/>
+    <title>dashboard</title>
+    <!--<link rel="stylesheet" href="/css/dashboard.css"/>-->
+    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" href="/css/foundation.css" />
+
+</head>
+<body>
+
+<!--<nav th:replace="partials/navbar-user :: user-nav"></nav>-->
+
+<!--<h2>Welcome to your Dashboard!</h2>-->
+<!--<div class="row justify-content-md-center" style="align-content: center">-->
+    <!--<div th:each="projects : ${listOfProjects}" class="card col-lg-4 col-sm-12 col-md-6 card-style d-flex justify-content-center">-->
+        <!--<div class="card-body">-->
+            <!--<h3 class="card-title"><span th:text="${projects.title}"></span></h3>-->
+            <!--<h4 class="card-subtitle mb-2 text-muted" >Creator: <span th:text="${projects.creator.username}"></span></h4>-->
+            <!--<p class="card-text">Description: <span th:text="${projects.description}"></span></p>-->
+            <!--<h5 class="card-subtitle mb-2 text-muted">Help Needed: <span th:text="${projects.dev_type.title}"></span></h5>-->
+            <!--<h5 class="card-subtitle mb-2 text-muted">Date/Time Created: <span th:text="${{projects.creatingDate}}"></span></h5>-->
+            <!--<form th:action="@{'/projects/' + ${projects.id} + '/single-project'}" th:method="GET">-->
+                <!--<input type="hidden" name="idEdit" th:value="${projects.id}" />-->
+                <!--<button type="submit" class="btn-style">View Project</button>-->
+            <!--</form>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+
+<!--Dashboard Foundation-->
+
+<div class="row">
+    <div class="columns small-2" th:each="frontEndProject : ${frontEndProjects}">
+        <div class="card" style="width: 300px;">
+            <div class="card-divider" th:text="${frontEndProject.title}"></div>
+            <div class="card-section">
+                <h4 th:text="${frontEndProject.creator.username}"></h4>
+                <p th:text="${frontEndProject.description}"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="columns small-2" th:each="backEndProject : ${backEndProjects}" >
+        <div class="card" style="width: 300px;">
+            <div class="card-divider" th:text="${backEndProject.title}"></div>
+            <div class="card-section">
+                <h4 th:text="${backEndProject.creator.username}"></h4>
+                <p th:text="${backEndProject.description}"></p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Compressed JavaScript -->
+<script src="/js/vendor/jquery.js"></script>
+<script src="/js/vendor/what-input.js"></script>
+<script src="/js/vendor/foundation.js"></script>
+<script src="/js/app.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

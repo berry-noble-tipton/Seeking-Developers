@@ -1,24 +1,43 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<th:block th:include="partials/header :: header" >
+</th:block>
     <meta charset="UTF-8" />
     <title>Create Project</title>
+    <link rel="stylesheet" href="/css/create.css"/>
+    <link rel="stylesheet" href="/css/navbar-user.css"/>
 </head>
 <body>
 
-<nav th:replace="partials/navbar :: nav"></nav>
+<nav th:replace="partials/navbar-user :: user-nav"></nav>
 
-<h1>Create a Project</h1>
+    <div class="card main-card" id="creatform">
+        <h1>Create a Project</h1>
+        <form th:action="@{/projects/create}"  class="card-body" th:method="post" th:object="${project}">
+            <label for="title"><b>Title</b></label>
+            <br/>
+            <input type="text" th:field="*{title}" id="title" />
+            <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
+            <br />
+            <br/>
+            <label for="description"><b>Description</b></label>
+            <br />
+            <textarea type="text" th:field="*{description}" class="textbox-style" id="description" ></textarea>
+            <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
+            <br />
+            <label for="helpNeeded"><b>What type of help is needed?</b></label>
+            <br/>
+            <select class="dropdown-style" name="helpNeeded" id="helpNeeded">
+                <option value="1">Front-End</option>
+                <option value="2">Back-End</option>
+            </select>
+            <br/>
+            <input class="btn-style" type="submit" id="submitbutton" />
+        </form>
+    </div>
 
-<form th:action="@{/projects/create}" th:method="post" th:object="${project}">
-    <label for="title">Title</label>
-    <input type="text" th:field="*{title}" id="title" />
-    <br />
-    <label for="description">Description</label>
-    <input type="text" th:field="*{description}" id="description" />
-    <br />
-    <input type="submit" />
-</form>
+<footer th:replace="partials/footer :: footer"></footer>
 
 </body>
 </html>
