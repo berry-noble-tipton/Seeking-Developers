@@ -39,12 +39,13 @@ public class DashboardController {
         ArrayList<Project> frontEndProjects = new ArrayList<>();
         ArrayList<Project> backEndProjects = new ArrayList<>();
         for (Project project: listOfProjects) {
-            if(project.getDev_type() == dev_typeFrontEnd){
+            if(project.getDev_type() == dev_typeFrontEnd && frontEndProjects.size() <= 2){
                 frontEndProjects.add(project);
-            } else {
+            } if(backEndProjects.size()<= 2 && project.getDev_type() != dev_typeFrontEnd) {
                 backEndProjects.add(project);
             }
         }
+
         model.addAttribute("frontEndProjects", frontEndProjects);
         model.addAttribute("backEndProjects", backEndProjects);
 
@@ -61,5 +62,32 @@ public class DashboardController {
         emailService.prepareAndSend(project, loggedInUser.getUsername() + " is applying.", "They want to help you on " + project.getTitle() + "they are a " + loggedInUser.getDev_type().getTitle() + " developer. You can email them at " + loggedInUser.getEmail());
         return "projects/dashboard";
     }
+
+
+    @GetMapping("/dashboard/viewall")
+    public String viewAll(Model model, @RequestParam(name = "viewAll") Long viewAll){
+
+        ArrayList<Project> listOfProjects = projectDao.findAllByisCompleteFalseOrderByCreatingDateDesc();
+        Dev_type dev_typeFrontEnd = devDao.findOne((long) 1);
+        ArrayList<Project> frontEndProjects = new ArrayList<>();
+        ArrayList<Project> backEndProjects = new ArrayList<>();
+        for (Project project: listOfProjects) {
+            if(project.getDev_type() == dev_typeFrontEnd && viewAll == 1){
+                frontEndProjects.add(project);
+            } if(viewAll == 2 && project.getDev_type() != dev_typeFrontEnd) {
+                backEndProjects.add(project);
+            }
+        }
+
+        model.addAttribute("frontEndProjects", frontEndProjects);
+        model.addAttribute("backEndProjects", backEndProjects);
+
+
+
+
+        return "projects/viewAll";
+    }
+
+
 
 }

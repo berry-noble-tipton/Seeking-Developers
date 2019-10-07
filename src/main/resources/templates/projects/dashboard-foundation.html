@@ -35,7 +35,7 @@
 <!--Dashboard Foundation-->
 
 <div class="row">
-    <div class="columns small-2" th:each="frontEndProject : ${frontEndProjects}">
+    <div class="columns small-4" th:each="frontEndProject : ${frontEndProjects}">
         <div class="card" style="width: 300px;">
             <div class="card-divider" th:text="${frontEndProject.title}"></div>
             <div class="card-section">
@@ -44,9 +44,13 @@
             </div>
         </div>
     </div>
+    <form th:action="@{/dashboard/viewall}" th:method="GET">
+        <input type="hidden" value="1" name="viewAll" />
+        <button type="submit" class="button">View all Front-End</button>
+    </form>
 </div>
 <div class="row">
-    <div class="columns small-2" th:each="backEndProject : ${backEndProjects}" >
+    <div class="columns small-4" th:each="backEndProject : ${backEndProjects}" >
         <div class="card" style="width: 300px;">
             <div class="card-divider" th:text="${backEndProject.title}"></div>
             <div class="card-section">
@@ -54,8 +58,11 @@
                 <p th:text="${backEndProject.description}"></p>
             </div>
         </div>
-
     </div>
+    <form th:action="@{/dashboard/viewall}" th:method="GET">
+        <input type="hidden" value="2" name="viewAll" />
+        <button type="submit" class="button">View all Back-End</button>
+    </form>
 </div>
 
 
