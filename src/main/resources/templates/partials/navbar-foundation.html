@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<title>Nav Bar</title>
+<body>
+<nav th:fragment="navbar" class="top-bar sd-main-nav" data-sticky-container="">
+    <div class="sticky  top-bar-left" data-sticky="" data-options="anchor: page; marginTop: 0; stickyOn: small;">
+        <ul class="dropdown menu sd-main-nav" data-dropdown-menu="true">
+            <li class="menu-text sd-main-nav sd-nav-text">SD</li>
+            <li class="sd-main-nav">
+                <a href="#">Login</a>
+                <ul class="menu vertical sd-main-nav">
+                    <form th:action="@{/login}" method="post">
+                        <input type="text" id="username" name="username" placeholder="Username" />
+                        <input type="password" id="password" name="password" placeholder="Password"/>
+                        <button type="submit" class="button">Login</button>
+                    </form>
+                </ul>
+            </li>
+            <li class="sd-main-nav">
+                <a href="#">Projects</a>
+                <ul class="menu vertical">
+                    <a th:href="@{/projects/create}">Create Project</a>
+                    <a th:href="@{/dashboard}">Dashboard</a>
+                </ul>
+            </li>
+            <li class="sd-main-nav sd-main-nav"><a th:href="@{/users}">Users</a></li>
+        </ul>
+    </div>
+<!--    <div class="top-bar-right">-->
+<!--        <ul class="menu">-->
+<!--            <form th:action="@{/users}" th:method="post">-->
+<!--            <li><input type="search" placeholder="Search" name="search" /></li>-->
+<!--            <li><button type="submit" class="button">Search</button></li>-->
+<!--            </form>-->
+<!--        </ul>-->
+<!--    </div>-->
+</nav>
+</body>
+</html>

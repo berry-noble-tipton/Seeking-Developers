@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8"/>
+    <title>dashboard</title>
+    <!--<link rel="stylesheet" href="/css/dashboard.css"/>-->
+    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+</head>
+<body>
+
+<nav th:replace="partials/navbar-foundation :: navbar"></nav>
+
+
+
+<!--Dashboard Foundation-->
+<h1 class="sd-landing-slogan-text">Welcome to your dashboard</h1>
+<div class="row">
+    <div class="columns small-4" th:each="frontEndProject : ${frontEndProjects}">
+        <div class="sd-card-default border-right">
+            <div class="" th:text="${frontEndProject.title}"></div>
+            <div class="card-section">
+                <h4 th:text="${frontEndProject.creator.username}"></h4>
+                <p>Date Created: <span th:text="${frontEndProject.creatingDate}"></span></p>
+                <form th:action="@{'/projects/' + ${frontEndProject.id} + '/single-project'}" th:method="GET">
+                    <input type="hidden" name="idEdit" th:value="${frontEndProject.id}" />
+                    <button type="submit" class="button sd-success radius">View Project</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="columns small-4" th:each="backEndProject : ${backEndProjects}" >
+        <div class="sd-card-default border-right">
+            <div class="" th:text="${backEndProject.title}"></div>
+            <div class="card-section">
+                <h4 th:text="${backEndProject.creator.username}"></h4>
+                <p>Date Created: <span th:text="${backEndProject.creatingDate}"></span></p>
+                <form th:action="@{'/projects/' + ${backEndProject.id} + '/single-project'}" th:method="GET">
+                    <input type="hidden" name="idEdit" th:value="${backEndProject.id}" />
+                    <button type="submit" class="button sd-success radius">View Project</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row sd-cta">
+        <div class="button-group">
+            <form th:action="@{/dashboard/viewall}" th:method="GET">
+                <input type="hidden" value="1" name="viewAll" />
+                <button type="submit" class="button sd-success radius">View all Front-End</button>
+            </form>
+            <form th:action="@{/dashboard/viewall}" th:method="GET">
+                <input type="hidden" value="2" name="viewAll" />
+                <button type="submit" class="button primary radius">View all Back-End</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div th:replace="partials/footer :: footer"></div>
+
+
+
+
+
+
+
+
+
+<!-- Compressed JavaScript -->
+<script src="/js/vendor/jquery.js"></script>
+<script src="/js/vendor/what-input.js"></script>
+<script src="/js/vendor/foundation.js"></script>
+<script src="/js/app.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

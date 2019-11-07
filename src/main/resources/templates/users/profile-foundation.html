@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Seeking Devs</title>
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+<!-- Nav -->
+<nav th:replace="partials/navbar-foundation :: navbar"></nav>
+
+<!-- Landing 4-8 -->
+<div class="container pad-top">
+    <div class="row">
+        <div class="columns small-8">
+            <h5>Open Projects</h5>
+            <ul class="list-group">
+                <li class="list-group-item">List Group Item 1</li>
+                <li class="list-group-item">List Group Item 2</li>
+                <li class="list-group-item">List Group Item 3</li>
+                <li class="list-group-item ">List Group Item 4</li>
+            </ul>
+
+            <h5>Completed Projects</h5>
+            <ul class="list-group">
+                <li class="list-group-item ">List Group Item 1</li>
+                <li class="list-group-item">List Group Item 2</li>
+                <li class="list-group-item">List Group Item 3</li>
+                <li class="list-group-item ">List Group Item 4</li>
+            </ul>
+        </div>
+
+        <div class="columns small-4">
+            <h5>Username</h5>
+            <div class="card-profile-stats">
+                <div class="card-profile-stats-intro">
+                    <img class="card-profile-stats-intro-pic" src="./img/user1.png" alt="profile-image" />
+                    <div class="card-profile-stats-intro-content">
+                        <p><small>Joined Jan.16th 2017</small></p>
+                    </div> <!-- /.card-profile-stats-intro-content -->
+                </div> <!-- /.card-profile-stats-intro -->
+                <hr />
+                <div class="card-profile-stats-container">
+                    <div class="card-profile-stats-statistic">
+                        <span class="stat">25</span>
+                        <p>posts</p>
+                    </div> <!-- /.card-profile-stats-statistic -->
+                    <div class="card-profile-stats-statistic">
+                        <span class="stat">125</span>
+                        <p>followers</p>
+                    </div> <!-- /.card-profile-stats-statistic -->
+                    <div class="card-profile-stats-statistic">
+                        <span class="stat">88</span>
+                        <p>likes</p>
+                    </div> <!-- /.card-profile-stats-statistic -->
+                </div> <!-- /.card-profile-stats-container -->
+                <hr />
+                <div class="sd-list-langs">
+                    <span class="pill-badges badge-blue">JavaScript</span>
+                    <span class="pill-badges badge-green">Java</span>
+                    <span class="pill-badges badge-purple">HTML</span>
+                    <span class="pill-badges badge-red">CSS</span>
+                    <span class="pill-badges badge-purple">PHP</span>
+                </div>
+                <div class="card-profile-stats-more">
+                    <p class="card-profile-stats-more-link"><a href="#"><i class="fa fa-angle-down" aria-hidden="true"></i></a></p>
+                    <div class="card-profile-stats-more-content">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem libero fugit, pariatur maxime! Optio enim, deserunt quia molestiae fugiat delectus, dolore et esse nostrum, quod autem necessitatibus fugit soluta repellendus.
+                        </p>
+                    </div> <!-- /.card-profile-stats-more-content -->
+                </div> <!-- /.card-profile-stats-more -->
+            </div> <!-- /.card-profile-stats -->
+        </div>
+    </div>
+</div>
+<div th:replace="partials/footer :: footer"></div>
+<!-- Compressed JavaScript -->
+<script src="/js/vendor/jquery.js"></script>
+<script src="/js/vendor/what-input.js"></script>
+<script src="/js/vendor/foundation.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/main.js"></script>
+
+</body>
+</html>

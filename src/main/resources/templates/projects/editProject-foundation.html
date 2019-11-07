@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8"/>
+    <title>Edit Project</title>
+    <!--<link rel="stylesheet" href="/css/dashboard.css"/>-->
+    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+
+</head>
+<body>
+
+<nav th:replace="partials/navbar-foundation :: navbar"></nav>
+
+<div class="sd-card border-right border-left">
+    <form th:action="@{'/projects/'+${project.id}+'/single-project/edit'}" th:object="${project}" onsubmit="return confirm('Are you sure you want to Edit this project?')">
+        <div class="card-section">
+            <h2 class="sd-landing-text">Edit Project</h2>
+        </div>
+        <div class="card-section">
+            <p>Title
+                <input type="text" th:field="${project.title}" />
+            </p>
+        </div>
+        <div class="card-section">
+            <p>Description
+                <input type="text" th:field="${project.description}" />
+            </p>
+        </div>
+        <div class="card-section">
+            <p>What type of help is needed?
+                <select class="" name="helpNeeded" id="helpNeeded">
+                    <option value="1">Front-End</option>
+                    <option value="2">Back-End</option>
+                </select>
+            </p>
+        </div>
+        <div class="card-section">
+            <p>Is the project complete?
+                <select name="isComplete" id="isComplete">
+                    <option value="false">No, it is not.</option>
+                    <option value="true">Yes, the project is complete!</option>
+                </select>
+            </p>
+        </div>
+        <input type="hidden" th:field="*{creator}" />
+        <input type="hidden" th:field="*{creatingDate}" />
+        <input type="hidden" th:field="*{dev_type}" />
+        <div class="card-section">
+            <input type="hidden" name="updateProject" th:value="${project.id}" />
+            <button th:type="submit" class="button success" id="submitbutton">Update Project</button>
+        </div>
+    </form>
+    <div class="card-section">
+        <form th:action="@{'/projects/'+${project.id}+'/single-project'}" th:method="POST">
+            <p>Add Contributor
+                <input type="text" placeholder="Enter Username" name="contributor" id="contributor" />
+                <input class="button warning" type="submit" value="Add Contributor" />
+            </p>
+        </form>
+    </div>
+    <div class="card-section">
+        <form th:action="@{'/projects/delete'}" th:method="POST" >
+            <input type="hidden" name="projectId" th:value="${project.id}" />
+            <button th:type="submit" class="alert button">Delete Project</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- Compressed JavaScript -->
+<script src="/js/vendor/jquery.js"></script>
+<script src="/js/vendor/what-input.js"></script>
+<script src="/js/vendor/foundation.js"></script>
+<script src="/js/app.js"></script>
+
+</body>
+</html>
+
+

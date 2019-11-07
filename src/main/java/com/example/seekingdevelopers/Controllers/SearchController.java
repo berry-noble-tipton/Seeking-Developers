@@ -33,7 +33,7 @@ public class SearchController {
         model.addAttribute("users", users);
         List<Project> projects = projectDao.findAll();
         model.addAttribute("projects", projects);
-        return "users/users-search-list";
+        return "users/viewAllUsers";
     }
 
     @PostMapping("/users")
@@ -42,7 +42,7 @@ public class SearchController {
         model.addAttribute("users", users);
         List<Project> projects = projectDao.findAllByTitleContaining(search);
         model.addAttribute("projects", projects);
-        return "users/users-search-list";
+        return "users/viewAllUsers";
     }
 
 

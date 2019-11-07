@@ -1,41 +1,54 @@
 <!DOCTYPE html>
-<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<th:block th:include="partials/header :: header" >
-</th:block>
-    <link rel="stylesheet" href="/css/login.css" />
-    <link rel="stylesheet" href="/css/navbar.css"/>
-    <title>Log In</title>
+    <link rel="stylesheet" href="/css/normalize.css"/>
+    <link rel="stylesheet" href="/css/foundation.css"/>
+    <link rel="stylesheet" href="/css/footer.css"/>
+    <link rel="stylesheet" href="/css/login.css"/>
+    <link rel="stylesheet" href="/css/main.css"/>
+    <title>Seeking Devs | Log In</title>
 </head>
 <body>
+<!--// Nav-->
+<nav th:replace="partials/navbar-foundation :: navbar"></nav>
 
-<nav th:replace="partials/navbar :: nav"></nav>
+<div class="container">
 
-<div></div>
+    <div class="sd-login-main-wrapper">
+        <!--   Login Input     -->
+        <div class="row">
+            <div class="columns large-6">
+                <div class="sd-login-container">
 
-<div class="login mx-auto" id="login-form" align="center">
+                    <form th:action="@{/login}" method="post">
+                        <div class="sd-login-form">
+                            <h3>Login</h3>
+                            <label for="username"></label>
+                            <input type="text" name="username" id="username" value="Username"/>
+                            <label for="password"></label>
+                            <input type="password" id="password" name="password"/>
+                            <button type="submit" value="Submit">Submit</button>
+                        </div>
+                    </form>
 
-    <form th:action="@{/login}" method="post" class="center" id="loginForm">
-        <div class="form-group">
-            <label for="username"><b>Username</b></label>
-            <br />
-            <input id="username" name="username" type="text" />
+                </div>
+            </div>
+            <!--     End Login Input   -->
+
+            <!--    Login Image     -->
+            <div class="columns large-6 sd-login-img">
+                <img class="login-img" src="img/login.png" alt=""/>
+            </div>
+            <!--    End Login Image    -->
         </div>
-        <div class="form-group">
-            <label for="password"><b>Password</b></label>
-            <br />
-            <input id="password" name="password" type="password" />
-        </div>
-        <br />
-        <div class="center-align">
-            <button type="submit" style="color: #151e3f" class="btn btn-lg btn-block" id="submit"><b>Login</b></button>
-        </div>
-    </form>
+    </div>
 </div>
-
-<img src="/img/program.jpg" class="images"/>
-
 <footer th:replace="partials/footer :: footer"></footer>
 
+<!-- Compressed JavaScript-->
+<script src="/js/vendor/jquery.js"></script>
+<script src="/js/vendor/what-input.js"></script>
+<script src="/js/vendor/foundation.js"></script>
+<script src="/js/app.js"></script>
 </body>
 </html>

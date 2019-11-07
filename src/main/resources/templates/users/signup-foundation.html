@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8"/>
+    <title>Register</title>
+    <!--<link rel="stylesheet" href="/css/dashboard.css"/>-->
+    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" href="/css/foundation.css" />
+
+</head>
+<body>
+
+<nav th:replace="partials/navbar-foundation :: navbar"></nav>
+
+
+<form th:action="@{/signup}" method="post" th:object="${user}">
+    <div class="row">
+            <div class="columns medium-6 cell">
+                <label>Username
+                    <input type="text" id="username" th:field="*{username}"/>
+                    <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+                </label>
+            </div>
+            <div class="columns medium-6 cell">
+                <label>Password
+                    <input type="password" th:field="*{password}" />
+                    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+                </label>
+            </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            <label>Email
+                <input type="email" th:field="*{email}" />
+                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            <label>Biography
+                <textarea th:field="*{bio}"></textarea>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            <label for="dev_type">What type of developer are you?</label>
+            <select name="dev_type" id="dev_type">
+                <option value="1">Front-End</option>
+                <option value="2">Back-End</option>
+                <option value="3">Full-Stack</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <p>What programming languages or frameworks do you know?</p>
+        <div class="columns medium-6">
+            <input id="HTML" type="checkbox" name="language" value="1" />
+            <label for="HTML">HTML</label>
+            <br />
+            <input id="jQuery" type="checkbox" name="language" value="2" />
+            <label for="jQuery">jQuery</label>
+            <br />
+            <input id="CSS" type="checkbox" name="language" value="3" />
+            <label for="CSS">CSS</label>
+            <br />
+            <input id="JavaScript" type="checkbox" name="language" value="4" />
+            <label for="JavaScript">JavaScript</label>
+            <br />
+        </div>
+        <div class="columns medium-6">
+            <input id="Java" type="checkbox" name="language" value="5" />
+            <label for="Java">Java</label>
+            <br />
+            <input id="Spring" type="checkbox" name="language" value="6" />
+            <label for="Spring">Spring</label>
+            <br />
+            <input id="NodeJS" type="checkbox" name="language" value="7" />
+            <label for="NodeJS">NodeJS</label>
+            <br />
+            <input id="Bootstrap" type="checkbox" name="language" value="8" />
+            <label for="Bootstrap">Bootstrap</label>
+        </div>
+    </div>
+    <button type="submit" class="button align-center">Register</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Compressed JavaScript -->
+<script src="/js/vendor/jquery.js"></script>
+<script src="/js/vendor/what-input.js"></script>
+<script src="/js/vendor/foundation.js"></script>
+<script src="/js/app.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,94 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8"/>
+    <title>View All</title>
+    <!--<link rel="stylesheet" href="/css/dashboard.css"/>-->
+    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+
+</head>
+<body>
+
+<nav th:replace="partials/navbar-foundation :: navbar"></nav>
+
+<div th:each="project : ${project}">
+    <div class="row">
+        <div class="columns">
+            <div class="sd-card-default border-left border-right">
+                <div class="card-section">
+                    <h1 th:text="${project.title}"></h1>
+                </div>
+                <div class="columns" id="createDate">
+                    <h5>Date Created: <span th:text="${{project.creatingDate}}"></span></h5>
+                </div>
+                <div class="card-section">
+                    <h4> Created by:</h4>
+                    <h4 th:text="${project.creator.username}"></h4>
+                </div>
+                <div class="card-section">
+                    <p>Description: <span th:text="${project.description}"></span></p>
+                </div>
+                <div class="card-section">
+                    <p>Type of help needed: <span th:text="${project.dev_type.title}"></span></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="columns small-4" th:each="user : ${contributors}">
+            <div class="sd-card-default border-left border-right">
+                <div class="card-section" th:text="${user.username}"></div>
+                <div class="card-section">
+                    <img th:src="${user.photo}" />
+                </div>
+                <div class="card-section">
+                    <h4 th:text="${user.dev_type.title}"></h4>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div th:if="${currentUser} == ${project.creator}">
+        <form th:action="@{'/projects/' + ${project.id} + '/single-project' + '/edit'}" th:method="GET">
+            <input type="hidden" name="editProject" th:value="${project.id}" />
+            <button th:type="submit" class="button sd-success radius">Edit Project</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Compressed JavaScript -->
+<script src="/js/vendor/jquery.js"></script>
+<script src="/js/vendor/what-input.js"></script>
+<script src="/js/vendor/foundation.js"></script>
+<script src="/js/app.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -42,7 +42,7 @@ public class AuthenticationController {
     @GetMapping("/signup")
     public String showSignupForm(Model model){
         model.addAttribute("user", new User());
-        return "users/signup";
+        return "users/signup-foundation";
     }
     @PostMapping("/signup")
     public String saveUser(@Valid User user, Errors validation, Model model, @RequestParam(name = "dev_type") Long id, @RequestParam(name = "language")long[] languages){
@@ -51,7 +51,7 @@ public class AuthenticationController {
         }
         if(validation.hasErrors()){
             model.addAttribute("errors",validation);
-            return "users/signup";
+            return "users/signup-foundation";
         }
         String hash = passwordEncoder.encode(user.getPassword());
         Dev_type dev_type = dev_typeDao.findOne(id);

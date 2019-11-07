@@ -26,6 +26,8 @@ insert into projects (id, creatingDate, description, is_complete, title, creator
 insert into projects (id, creatingDate, description, is_complete, title, creator_id, dev_type_id) values (19, '4/29/2019', 'Ara chloroptera', 1, 'Play it to the Bone', 3, 1);
 insert into projects (id, creatingDate, description, is_complete, title, creator_id, dev_type_id) values (20, '9/25/2018', 'Megaderma spasma', 0, 'Whole Wide World, The', 3, 2);
 
+use seeking_db;
+
 insert into dev_type (id, title) values (1, 'front-end');
 insert into dev_type (id, title) values (2, 'back-end');
 insert into dev_type (id, title) values (3, 'full-stack');
@@ -69,3 +71,15 @@ insert into user_projects (user_id, project_id) values (3, 17);
 insert into user_projects (user_id, project_id) values (3, 18);
 insert into user_projects (user_id, project_id) values (3, 19);
 insert into user_projects (user_id, project_id) values (3, 20);
+
+
+use seeking_db;
+
+insert into languages (id, language) values (1, 'HTML');
+insert into languages (id, language) values (2, 'jQuery');
+insert into languages (id, language) values (3, 'CSS');
+insert into languages (id, language) values (4, 'Javascript');
+insert into languages (id, language) values (5, 'Java');
+insert into languages (id, language) values (6, 'Spring');
+insert into languages (id, language) values (7, 'Node JS');
+insert into languages (id, language) values (8, 'Bootstrap Framework');
